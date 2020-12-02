@@ -20,7 +20,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.employeeapp")
+@EnableJpaRepositories("com.employeeapp.repository")
 @PropertySource("classpath:db.properties")
 @ComponentScan("com.employeeapp")
 public class DBConfig {
@@ -55,7 +55,7 @@ public class DBConfig {
         properties.setProperty("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
         properties.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
         entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
-        entityManagerFactoryBean.setPackagesToScan("com.tcs.assignment.model");
+        entityManagerFactoryBean.setPackagesToScan("com.employeeapp.model");
         entityManagerFactoryBean.setJpaProperties(properties);
 
         return entityManagerFactoryBean;

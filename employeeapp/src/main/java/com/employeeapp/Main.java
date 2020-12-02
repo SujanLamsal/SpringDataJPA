@@ -1,10 +1,11 @@
 package com.employeeapp;
 
+import java.util.Optional;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.employeeapp.configuration.DBConfig;
 import com.employeeapp.model.Employee;
-import com.employeeapp.repository.EmployeeRepository;
 import com.employeeapp.service.EmployeeService;
 
 
@@ -12,7 +13,6 @@ import com.employeeapp.service.EmployeeService;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
 		AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DBConfig.class);
 		
@@ -22,14 +22,17 @@ public class Main {
 		
 		Employee employee = new Employee();
 		employee.setId((long)0);
-		employee.setAge(20);
+		employee.setAge(21);
 		employee.setDepartmentId((long)1);
-		employee.setName("Rajat");
-		employee.setOrganizationId((long)(2));
-		employee.setPosition("Manager");
+		employee.setName("Sailesh");
+		employee.setOrganizationId((long)(5));
+		employee.setPosition("Peon");
 		
-//		repository.save(employee);
-		service.addEmployee(employee);
+//		service.addEmployee(employee);
+//		System.out.println(service.deleteEmployee(5));
+		
+		System.out.println(service.findByOrganizationId(5).toString());
+		
 		context.close();
 		
 	}

@@ -8,7 +8,7 @@ import com.employeeapp.model.Employee;
 public interface EmployeeService {
 	
 	String addEmployee(Employee employee);
-	String updateEmployee (long id);
+	String updateEmployee (Employee employee);
 	String deleteEmployee (long id);
 	Optional<Employee> findById(long id);
 	Optional<List<Employee>> getEmployees();
